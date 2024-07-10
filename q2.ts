@@ -1,9 +1,19 @@
 // const axios = require("axios");
 import axios from "axios";
 
-/* assign interface/type to the function definition properly */
+
 const getTodo = async (todoId: number) => {
-  /* Your code here */
+  try{
+    const userId = await axios.get("https://jsonplaceholder.typicode.com/todos/"+todoId);
+    const user = await axios.get("https://jsonplaceholder.typicode.com/users/"+userId.data.userId);
+    return {
+      owner: user.data.name,
+      title: userId.data.title,
+      completed: userId.data.completed,
+    };
+  }catch (error) {
+    return "INVALID USER ID ";
+  }
 };
 
 //test case
@@ -17,3 +27,5 @@ getTodo(input2).then((result) => console.log(result));
 getTodo(input3).then((result) => console.log(result));
 
 export default getTodo;
+
+// ณัฐดนัย ติ๊บดอนจันทร์ 660610756

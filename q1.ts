@@ -12,7 +12,7 @@ async function getUser(userId: number) {
   const resp = await axios.get("https://jsonplaceholder.typicode.com/users/"+userId)
   return resp.data.name;}
   catch (error) {
-    return "INVALID USER ID ";
+    return "INVALID USER ID";
   }
 }
 

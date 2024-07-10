@@ -12,7 +12,7 @@ const getTodo = async (todoId: number) => {
       completed: userId.data.completed,
     };
   }catch (error) {
-    return "INVALID USER ID ";
+    return "INVALID USER ID";
   }
 };
 
